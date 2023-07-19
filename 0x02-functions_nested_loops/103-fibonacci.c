@@ -16,12 +16,12 @@ int main(void)
 	sum += b;
 
 	for (; c < 4e6; c = (a + b))
-      	{
-        	a = b;
-        	b = c;
-   	        if (c % 2 == 0)
-                	sum += c;
-      	}
-      	printf("%ld\n", sum);
+	{
+		a = b;
+		b = c;
+		if (c % 2 == 0)
+			sum += c;
+	}
+	printf("%ld\n", sum);
 	return (0);
 }
