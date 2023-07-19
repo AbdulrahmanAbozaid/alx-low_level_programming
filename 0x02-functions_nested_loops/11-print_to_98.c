@@ -12,33 +12,72 @@ void print_to_98(int n)
 {
 	int tmp = n;
 
-	for (; tmp < 99; tmp++)
+	if (n <= 98)
 	{
-		if (tmp == n)
+		for (; tmp < 99; tmp++)
 		{
-			if (tmp < 10)
+			if (tmp == n)
 			{
-				_putchar(tmp + '0');
+				if (tmp < 10)
+				{
+					_putchar(tmp + '0');
+				}
+				else
+				{
+					_putchar((tmp / 10) + '0');
+					_putchar((tmp % 10) + '0');
+				}
 			}
 			else
 			{
-				_putchar((tmp / 10) + '0');
-				_putchar((tmp % 10) + '0');
-			}
-		}
-		else
-		{
-			_putchar(',');
-			_putchar(' ');
-			if (tmp < 10)
-			{
-				_putchar(tmp + '0');
-			}
-			else
-			{
-				_putchar((tmp / 10) + '0');
-				_putchar((tmp % 10) + '0');
+				_putchar(',');
+				_putchar(' ');
+				if (tmp < 10)
+				{
+					_putchar(tmp + '0');
+				}
+				else
+				{
+					_putchar((tmp / 10) + '0');
+					_putchar((tmp % 10) + '0');
+				}
 			}
 		}
 	}
+	else
+	{
+
+		for (; tmp >= 98; tmp--)
+		{
+		{
+			if (tmp == n)
+				if (tmp < 10)
+				{
+					_putchar(tmp + '0');
+				}
+				else
+				{
+					_putchar((tmp / 10) + '0');
+					_putchar((tmp % 10) + '0');
+				}
+			}
+			else
+			{
+				_putchar(',');
+				_putchar(' ');
+				if (tmp < 10)
+				{
+					_putchar(tmp + '0');
+				}
+				else
+				{
+					_putchar((tmp / 10) + '0');
+					_putchar((tmp % 10) + '0');
+				}
+			}
+		}
+	}
+
+
+	_putchar('\n');
 }
