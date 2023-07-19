@@ -3,7 +3,9 @@
 
 /**
  * add - adds two nums a, b
- * @a: num, @b: num
+ * @a: num
+ * @b: num
+ *
  * Return: a + b
  */
 
