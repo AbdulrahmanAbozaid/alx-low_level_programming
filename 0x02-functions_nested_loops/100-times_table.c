@@ -22,7 +22,7 @@ void print_times_table(int n)
 		{
 			if (j == 0)
 			{
-				_putchar('0');
+				printf('0');
 				k += i;
 				continue;
 			}
@@ -43,6 +43,6 @@ void print_times_table(int n)
 			k += i;
 		}
 
-		_putchar('\n');
+		printf('\n');
 	}
 }
