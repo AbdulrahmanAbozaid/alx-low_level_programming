@@ -2,9 +2,9 @@
 #include "main.h"
 
 /**
- * more_numbers - pr
+ * more_numbers - print nums
  *
- * Return: no
+ * Return: nothimg
  */
 
 void more_numbers(void)
