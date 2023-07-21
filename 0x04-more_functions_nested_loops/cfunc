@@ -1,0 +1,6 @@
+#!/bin/bash
+echo "Enter the name:"
+read name
+touch $name
+printf "#include <stdio.h>\n#include \"main.h\"\n\n/**\n *  - \n *\n * Return: \n */\n\ntype func(void)\n{\n	\n}" > $name
+vi $name
