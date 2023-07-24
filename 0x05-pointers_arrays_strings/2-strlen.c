@@ -10,5 +10,13 @@
 
 int _strlen(char *s)
 {
-	return (sizeof(s));
+	int ctr = 0;
+	char *c;
+
+	for (c = s; c != '\0'; c++)
+	{
+		ctr++;
+	}
+
+	return (ctr);
 }
