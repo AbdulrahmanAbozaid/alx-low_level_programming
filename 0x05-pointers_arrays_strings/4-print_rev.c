@@ -18,7 +18,7 @@ void print_rev(char *s)
 		ctr++;
 	}
 
-	for (c = s + ctr; c != s - 1; c--)
+	for (c = s + ctr; c != s; c--)
 	{
 		printf("%c", *c);
 	}
