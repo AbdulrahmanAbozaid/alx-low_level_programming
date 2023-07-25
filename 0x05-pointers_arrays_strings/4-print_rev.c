@@ -18,9 +18,9 @@ void print_rev(char *s)
 		ctr++;
 	}
 
-	for (c = s + ctr; c != s; c--)
+	for (; ctr; ctr--)
 	{
-		printf("%c", *c);
+		printf("%c", s[ctr]);
 	}
 
 	putchar('\n');
