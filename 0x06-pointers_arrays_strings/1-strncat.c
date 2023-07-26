@@ -2,7 +2,7 @@
 #include "main.h"
 
 /**
- * _strcat - wsde
+ * _strncat - wsde
  * @dest: gesdg
  * @src: setg
  * @n: fsdfgs
