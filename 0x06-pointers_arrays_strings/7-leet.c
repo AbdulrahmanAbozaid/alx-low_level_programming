@@ -20,7 +20,7 @@ char *leet(char *s)
 		for (i = 0; i < sizeof(key) / sizeof(char); ++i)
 		{
 			if (*s == key[i] || *s == key[i] + 32)
-				*c = 48 + val[i];
+				*s = 48 + val[i];
 		}
 		s++;
 	}
