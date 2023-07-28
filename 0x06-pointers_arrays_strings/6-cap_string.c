@@ -3,18 +3,18 @@
 
 /**
  * isDelimiter - wegtsew
- * @c: fwesgf
+ * @a: fwesgf
  *
  * Return: gwesg
  */
 
-int isDelimiter(char c)
+int isDelimiter(char a)
 {
 	int i;
-	char dels[] = "\t\n\",.!?(){}";
+	char dels[] = " \t\n\",.!?(){}";
 
 	for (i = 0; i < 12; ++i)
-		if (c == dels[i])
+		if (a == dels[i])
 			return (1);
 
 	return (0);
