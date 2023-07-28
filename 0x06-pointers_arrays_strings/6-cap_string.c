@@ -29,16 +29,21 @@ int isDelimiter(char c)
 
 char *cap_string(char *c)
 {
-	int i;
+	int found = 1;
+	char *ptr = c;
 
-	for (i = 0; c[i]; ++i)
+	while (*c)
 	{
-		if (isDelimiter(c[i]))
+		if (isDelimiter(*c))
+			found = 1;
+		else if ((*c >= 'a' && *c <= 'z') && found)
 		{
-			if (c[i + 1] && (c[i + 1] >= 'a' && c[i + 1] <= 'z')
-					c[i + 1] -= ('a' - 'A');
+			*s -= 32;
+			found = 0;
 		}
+		else
+			found = 0;
+		s++;
 	}
-
-	return (c);
+	return (ptr);
 }
