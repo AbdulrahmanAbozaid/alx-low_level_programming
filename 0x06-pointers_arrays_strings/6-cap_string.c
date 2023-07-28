@@ -38,12 +38,12 @@ char *cap_string(char *c)
 			found = 1;
 		else if ((*c >= 'a' && *c <= 'z') && found)
 		{
-			*s -= 32;
+			*c -= 32;
 			found = 0;
 		}
 		else
 			found = 0;
-		s++;
+		c++;
 	}
 	return (ptr);
 }
