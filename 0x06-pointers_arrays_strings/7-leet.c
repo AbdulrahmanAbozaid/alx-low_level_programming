@@ -15,14 +15,14 @@ char *leet(char *s)
 	int val[] = {4, 3, 0, 7, 1};
 	unsigned int i;
 
-	while (*c)
+	while (*s)
 	{
 		for (i = 0; i < sizeof(key) / sizeof(char); ++i)
 		{
-			if (*c == key[i] || *c == key[i] + 32)
+			if (*s == key[i] || *s == key[i] + 32)
 				*c = 48 + val[i];
 		}
-		c++;
+		s++;
 	}
 	return (cp);
 }
