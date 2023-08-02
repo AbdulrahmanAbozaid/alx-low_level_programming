@@ -11,14 +11,22 @@
 
 char *_strstr(char *haystack, char *needle)
 {
-	unsigned int i, j;
+	char *p1 = haystack;
+	char *p2 = needle;
+	char *p1Adv = haystack;
 
-	for (i = 0; haystack[i] != '\0'; ++i)
+	while (*p1 && *needle)
 	{
-		if (haystack[i] == needle[0])
-		for (j = 0; needle[j] != '\0'; j++)
+		if (*p1 == *p2)
 		{
-			if ()
+			p1++;
+			p2++;
+		}
+		else
+		{
+			p2 = needle;
+			p1 = ++p1Adv;
 		}
 	}
+	return ((*needle == '\0') ? p1Adv : NULL);
 }
