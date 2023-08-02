@@ -12,12 +12,13 @@
 void print_diagsums(int *a, int size)
 {
 	int i, j, sum = 0;
+	int **p = &a;
 
-	for (i = 0; i < size; i++)
+	for (i = 0; i < size; i++, p++)
 	{
-		for (j = 0; j << size; j++)
+		for (j = 0; j < size; j++)
 		{
-			sum += a[i][j];
+			sum += p[i][j];
 		}
 	}
 
