@@ -5,22 +5,20 @@
  * check - gwedg
  * @s1: gesdgw
  * @s2: gfsdg
- * @l: gre
  * Return: gsdt
  */
 
-int check(char *s1, char *s2, int l)
+int check(char *s1, char *s2)
 {
-	if (!l)
+	if ((s1 == s2 && *s1 == *s1) || (s1 == s2 - 1 && *s1 == *s2))
 		return (1);
 
 	if (*s1 != *s2)
 		return (0);
 	s1++;
 	s2--;
-	l--;
 
-	return (check(s1, s2, l));
+	return (check(s1, s2));
 }
 
 /**
@@ -33,12 +31,10 @@ int check(char *s1, char *s2, int l)
 int is_palindrome(char *s)
 {
 	char *p = s;
-	int i = 0;
 
-	while (s[i] != '\0')
+	while (*(p + 1) != '\0')
 	{
 		p++;
-		i++;
 	}
-	return (check(s, p, i / 2));
+	return (check(s, p));
 }
