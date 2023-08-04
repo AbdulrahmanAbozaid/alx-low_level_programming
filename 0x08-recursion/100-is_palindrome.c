@@ -12,7 +12,7 @@
 
 int check(char *s, int i, int j, int e)
 {
-	if ((i == j && e != 0) || (i == j + 1 && e == 0))
+	if (s[i] == s[j] && ((i == j && e != 0) || (i == j + 1 && e == 0)))
 		return (1);
 	else if (s[i] != s[j])
 		return (0);
