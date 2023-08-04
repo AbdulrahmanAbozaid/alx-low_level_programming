@@ -10,15 +10,12 @@
 
 int check(int n, int val)
 {
-	if (val * val <= n)
-	{
-		if (n % val == 0)
-			return (0);
-		else
-			return (check(n, val + 1));
-	}
+	if (val * val > n && n > 1)
+		return (1);
+	else if (n % val == 0 || n <= 1)
+		return (0);
 
-	return (0);
+	return (check(n, val + 1));
 }
 
 /**
