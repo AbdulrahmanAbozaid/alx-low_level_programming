@@ -31,10 +31,13 @@ int check(char *s1, char *s2)
 int is_palindrome(char *s)
 {
 	char *p = s;
+	int i = 0;
 
-	while (*(p + 1) != '\0')
+	while (p[i] != '\0')
 	{
+		i++;
 		p++;
 	}
+	p--;
 	return (check(s, p));
 }
