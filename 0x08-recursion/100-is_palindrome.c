@@ -21,6 +21,22 @@ int check(char *s, int i, int j, int e)
 }
 
 /**
+ * last_index - gesgse
+ * @s: gdsgsd
+ * Return: gewg
+ */
+
+int last_index(char *s)
+{
+	int n = 0;
+
+	if (*s > '\0')
+		n += last_index(s + 1) + 1;
+
+	return (n);
+}
+
+/**
  * is_palindrome - seryers
  * @s: gewsgge
  *
@@ -29,11 +45,7 @@ int check(char *s, int i, int j, int e)
 
 int is_palindrome(char *s)
 {
-	int i = 0;
+	int i = last_index(s);
 
-	while (s[i] != '\0')
-	{
-		i++;
-	}
 	return (check(s, 0, i - 1, i % 2));
 }
