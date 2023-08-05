@@ -44,8 +44,6 @@ int main(int argc, char *argv[])
 		}
 	}
 
-	printf("%d", m);
-	if (n < 0)
-		printf("\n");
+	printf("%d\n", m);
 	return (0);
 }
