@@ -48,7 +48,7 @@ char **strtow(char *str)
 	char **s;
 	int i, j = 0, k, l, n = 0, wc = 0;
 
-	if (str == NULL || str == "")
+	if (str == NULL || *str == '0')
 		return (NULL);
 	n = getLen(str);
 	if (n == 1)
@@ -56,7 +56,7 @@ char **strtow(char *str)
 	s = (char **)malloc(n * sizeof(char *));
 	if (s == 0)
 		return (NULL);
-	s[n - 1] - NULL;
+	s[n - 1] = NULL;
 	i = 0;
 	while (str[i])
 	{
