@@ -37,14 +37,14 @@ char *argstostr(int ac, char **av)
 	for (i = 0; i < ac; i++, nc++)
 		nc += _strlen(av[i]);
 
-	s = (char *)malloc(nc * sizeof(char) + 1);
+	s = malloc(nc * sizeof(char) + 1);
 
 	if (s == 0)
 		return (NULL);
 
 	for (i = 0; i < ac; i++)
 	{
-		for (; av[i][j] != '\0'; j++, e++)
+		for (j = 0; av[i][j] != '\0'; j++, e++)
 			s[e] = av[i][j];
 		s[e] = '\n';
 		e++;
