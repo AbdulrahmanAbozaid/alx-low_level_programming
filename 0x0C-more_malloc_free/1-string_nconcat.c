@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include "main.h"
 
 /**
@@ -46,7 +47,7 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 
 	s = malloc(len1 + n + 1);
 
-	if (!s)
+	if (s == NULL)
 		return (NULL);
 
 	for (i = 0; i < len1; ++i)
