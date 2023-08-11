@@ -1,5 +1,24 @@
 #include <stdio.h>
 #include "main.h"
+#include <stdlib.h>
+
+/**
+ * _mems - gwsdgswdgegt
+ * @s: gfewsdgtsed
+ * @b: gewstgsedt
+ * @m: gewgstg
+ * Return: egwryhewrg
+ */
+
+char *_mems(char *s, char b, unsigned int m)
+{
+	char *ptr = s;
+
+	while (n--)
+		*s++ = b;
+
+	return (ptr);
+}
 
 /**
  * _calloc - ghresger
@@ -11,23 +30,15 @@
 void *_calloc(unsigned int nmemb, unsigned int size)
 {
 	void *m;
-	char *s, *ptr;
-	int i, n;
 
 	if (nmemb == 0 || size == 0)
 		return (NULL);
-	m = malloc(nmemb * sizeof(int));
+	m = malloc(sizeof(int) * nmemb);
 
-	if (m == NULL)
+	if (m == 0)
 		return (NULL);
 
-	s = m;
-	ptr = s;
-	n = sizeof(int) * nmemb;
+	_mems(m, 0, sizeof(int) * nmemb)
 
-	while (n--)
-		*s++ = '0';
-	
-
-	return (ptr);
+	return (m);
 }
