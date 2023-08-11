@@ -6,15 +6,15 @@
  * _mems - gwsdgswdgegt
  * @s: gfewsdgtsed
  * @b: gewstgsedt
- * @m: gewgstg
+ * @n: gewgstg
  * Return: egwryhewrg
  */
 
-char *_mems(char *s, char b, unsigned int m)
+char *_mems(char *s, char b, unsigned int n)
 {
 	char *ptr = s;
 
-	while (m--)
+	while (n--)
 		*s++ = b;
 
 	return (ptr);
@@ -38,7 +38,7 @@ void *_calloc(unsigned int nmemb, unsigned int size)
 	if (m == 0)
 		return (NULL);
 
-	_mems(m, 0, sizeof(int) * nmemb)
+	_mems(m, 0, sizeof(int) * nmemb);
 
 	return (m);
 }
