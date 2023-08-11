@@ -38,7 +38,7 @@ void *_calloc(unsigned int nmemb, unsigned int size)
 	if (m == 0)
 		return (NULL);
 
-	m = _mems(m, 0, size(int) * nmemb);
+	m = _mems(m, 0, size * nmemb);
 
 	return (m);
 }
