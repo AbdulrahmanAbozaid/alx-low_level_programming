@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include <stdlib.h>
 #include "main.h"
 
 /**
@@ -13,12 +12,12 @@ int _strlen(char *s)
 	int len = 0;
 
 	if (s == NULL)
-		return (0);
+		return (len);
 
 	while (s[len] != '\0')
 		len++;
 
-	return (len - 1);
+	return (len);
 }
 
 /**
@@ -32,15 +31,20 @@ int _strlen(char *s)
 
 char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
-	int i, j;
-	int len1 = _strlen(s1);
-	int len2 = _strlen(s2);
+	unsigned int i, j;
+	unsigned int len1 = _strlen(s1);
+	unsigned int len2 = _strlen(s2);
 	char *s;
+
+	if (s1 == NULL)
+		s1 = "";
+	if (s2 == NULL)
+		s2 = "";
 
 	if (n < len2)
 		len2 = n;
 
-	s = malloc(len1 + len2 + 1);
+	s = malloc(len1 + n + 1);
 
 	if (!s)
 		return (NULL);
@@ -50,12 +54,13 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 		s[i] = s1[i];
 	}
 
-	for (j = 0; j < len2; ++j)
+	for (j = 0; j < n; ++j)
 	{
-		s[len1 + j] = s2[j];
+		s[i] = s2[j];
+		i++;
 	}
 
-	s[len1 + len2] = '\0';
+	s[i] = '\0';
 
 	return (s);
 }
