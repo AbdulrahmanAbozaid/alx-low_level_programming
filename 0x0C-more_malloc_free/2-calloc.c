@@ -14,7 +14,7 @@ char *_mems(char *s, char b, unsigned int m)
 {
 	char *ptr = s;
 
-	while (n--)
+	while (m--)
 		*s++ = b;
 
 	return (ptr);
