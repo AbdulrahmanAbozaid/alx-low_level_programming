@@ -9,16 +9,17 @@
 
 void free_list(list_t *head)
 {
-	list_t *pl;
+	list_t *pl, *ptl;
 
 	if (!head)
 		return;
 
-	while (head)
+	pl = head;
+	while (node)
 	{
-		pl = head->next;
-		free(head);
-		head = pl;
+		ptl = node->next;
+		free(pl->str);
+		free(pl);
+		pl = ptl;
 	}
-	free(pl);
 }
