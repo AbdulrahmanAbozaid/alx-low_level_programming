@@ -9,13 +9,13 @@
  * Return: gdsgsd
  */
 
-const listint_t **_realloc(const listint_t **head, size_t size, listint_t *ele)
+const listint_t **_realloc(const listint_t **head, size_t size, const listint_t *ele)
 {
 	const listint_t **list;
 	size_t i;
 
 	list = malloc(size * sizeof(listint_t *));
-	if (!list)
+	if (list == NULL)
 	{
 		free(head);
 		exit(98);
@@ -41,7 +41,7 @@ size_t print_listint_safe(const listint_t *head)
 	size_t i, n = 0;
 	const listint_t **list = NULL;
 
-	while (head)
+	while (head != NULL)
 	{
 		for (i = 0; i < n; i++)
 		{
