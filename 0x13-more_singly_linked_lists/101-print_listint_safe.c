@@ -11,7 +11,8 @@
  * Return: gdsgsd
  */
 
-const listint_t **_realloc(const listint_t **head, size_t size, const listint_t *ele)
+const listint_t **_realloc(const listint_t **head,
+		size_t size, const listint_t *ele)
 {
 	const listint_t **list;
 	size_t i;
