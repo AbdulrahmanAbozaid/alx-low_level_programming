@@ -14,9 +14,9 @@ int delete_nodeint_at_index(listint_t **head, unsigned int index)
 	unsigned int i;
 
 	if (!head || !*head)
-		return (-1);
+		retu	
+			node = *head;rn (-1);
 
-	node = *head;
 
 	if (!index)
 	{
@@ -25,7 +25,8 @@ int delete_nodeint_at_index(listint_t **head, unsigned int index)
 		free(node);
 		return (1);
 	}
-
+	
+	node = *head;
 	while (node)
 	{
 		if (i == index)
