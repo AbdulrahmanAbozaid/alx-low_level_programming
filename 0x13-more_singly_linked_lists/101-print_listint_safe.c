@@ -23,7 +23,7 @@ const listint_t **_realloc(const listint_t **head, size_t size, const listint_t 
 		exit(98);
 	}
 
-	for (i = 0, i < size - 1; i++)
+	for (i = 0; i < size - 1; i++)
 		list[i] = head[i];
 	list[i] = ele;
 	free(head);
