@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * read_testfile - read
+ * read_textfile - read
  * @filename: file
  * @letters: str
  *
