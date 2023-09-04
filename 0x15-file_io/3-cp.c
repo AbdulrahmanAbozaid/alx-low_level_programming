@@ -21,26 +21,26 @@ int main(int agc, char **agv)
 	ssize_t sz;
 	char _buf[MAX_READ_BUF];
 
-	if (ac != 3)
+	if (agc != 3)
 		dprintf(STDERR_FILENO, USAGE), exit(97);
 	file_1 = open(agv[1], O_RDONLY);
 	if (file_1 == -1)
 		dprintf(STDERR_FILENO, ERR_NOREAD, agv[1]), exit(98);
-	file_2 = open(agv[2], O_WRONLY | O_CREAT | O_TRUNC, PERMISSIONS);
+	file_2 = open(agv[2], O_WRONLY | O_CREAT | O_TRUNC, PERMISSION);
 	if (file_2 == -1)
 		dprintf(STDERR_FILENO, ERR_NOWRITE, agv[2]), exit(99);
 
 	while ((sz = read(file_1, _buf, MAX_READ_BUF)) > 0)
 		if (write(file_2, _buf, sz) != sz)
-			dprintf(STDERR_FILENO, ERR_NOWRITE, av[2]), exit(99);
+			dprintf(STDERR_FILENO, ERR_NOWRITE, agv[2]), exit(99);
 	if (sz == -1)
-		dprintf(STDERR_FILENO, ERR_NOREAD, av[1]), exit(98);
+		dprintf(STDERR_FILENO, ERR_NOREAD, agv[1]), exit(98);
 
 	file_1 = close(file_1);
 	file_2 = close(file_2);
 
 	if (file_1)
-		dprintf(STDERR_FILENO, ERR_NOCLOSE, file_1), exit(100));
+		dprintf(STDERR_FILENO, ERR_NOCLOSE, file_1), exit(100);
 
 	if (file_2)
 		dprintf(STDERR_FILENO, ERR_NOCLOSE, file_2), exit(100);
