@@ -1,7 +1,33 @@
 #include "main.h"
 #include <elf.h>
 
-void print_osabi_more(Elf64_Ehdr *h);
+
+/**
+ * print_osabi_more -  put a magic
+ * @fh: file handle
+ */
+
+void print_osabi_more(Elf64_Ehdr fh)
+{
+	switch (fh.e_ident[EI_OSABI])
+	{
+		case ELFOSABI_MODESTO:
+			printf("Novell - Modesto");
+			break;
+		case ELFOSABI_OPENBSD:
+			printf("UNIX - OpenBSD");
+			break;
+		case ELFOSABI_STANDALONE:
+			printf("Standalone App");
+			break;
+		case ELFOSABI_ARM:
+			printf("ARM");
+			break;
+		default:
+			printf("<unknown: %x>", fh.e_ident[EI_OSABI]);
+	}
+}
+
 
 /**
  * put_magic -  put a magic
@@ -14,7 +40,7 @@ void put_magic(Elf64_Ehdr fh)
 
 	printf("  Magic:   ");
 	for (j = 0; j < EI_NIDENT; j++)
-		printf("%2.2x%s", fh.e_ident[j], i == EI_NIDENT - 1 ? "\n" : " ");
+		printf("%2.2x%s", fh.e_ident[j], j == EI_NIDENT - 1 ? "\n" : " ");
 }
 
 /**
@@ -92,7 +118,7 @@ void put_version(Elf64_Ehdr fh)
 
 void put_type(Elf64_Ehdr fh)
 {
-	char *pr = (char *)&h.e_type;
+	char *p = (char *)&fh.e_type;
 	int c = 0;
 
 	printf("  Type:                              ");
@@ -133,9 +159,9 @@ void put_entry(Elf64_Ehdr fh)
 	unsigned char *pc = (unsigned char *)&fh.e_entry;
 
 	printf("  Entry point address:               0x");
-	if (h.e_ident[EI_DATA] != ELFDATA2MSB)
+	if (fh.e_ident[EI_DATA] != ELFDATA2MSB)
 	{
-		i = h.e_ident[EI_CLASS] == ELFCLASS64 ? 7 : 3;
+		i = fh.e_ident[EI_CLASS] == ELFCLASS64 ? 7 : 3;
 		while (!pc[i])
 		{
 			i--;
@@ -148,7 +174,7 @@ void put_entry(Elf64_Ehdr fh)
 	else
 	{
 		i = 0;
-		l = h.e_ident[EI_CLASS] == ELFCLASS64 ? 7 : 3;
+		l = fh.e_ident[EI_CLASS] == ELFCLASS64 ? 7 : 3;
 		while (!pc[i])
 			i++;
 		printf("%x", pc[i++]);
@@ -166,7 +192,7 @@ void put_entry(Elf64_Ehdr fh)
 void put_abiversion(Elf64_Ehdr fh)
 {
 	printf("  ABI Version:                       %d\n",
-			e_ident[EI_ABIVERSION]);
+			fh.e_ident[EI_ABIVERSION]);
 }
 
 /**
@@ -208,35 +234,9 @@ void put_osabi(Elf64_Ehdr fh)
 			printf("UNIX - TRU64");
 			break;
 		default:
-			print_osabi_more();
+			print_osabi_more(fh);
 	}
 	printf("\n");
-}
-
-/**
- * print_osabi_more -  put a magic
- * @fh: file handle
- */
-
-void print_osabi_more(Elf64_Ehdr fh)
-{
-	switch (fh.e_ident[EI_OSABI])
-	{
-		case ELFOSABI_MODESTO:
-			printf("Novell - Modesto");
-			break;
-		case ELFOSABI_OPENBSD:
-			printf("UNIX - OpenBSD");
-			break;
-		case ELFOSABI_STANDALONE:
-			printf("Standalone App");
-			break;
-		case ELFOSABI_ARM:
-			printf("ARM");
-			break;
-		default:
-			printf("<unknown: %x>", h.e_ident[EI_OSABI]);
-	}
 }
 
 /**
@@ -250,7 +250,7 @@ int main(int argc, char **argv)
 {
 	int file;
 	Elf64_Ehdr fh;
-	ssize_t size;
+	size_t size;
 
 	if (argc != 2)
 		dprintf(STDERR_FILENO, "Usage: elf_header elf_filename\n"), exit(98);
